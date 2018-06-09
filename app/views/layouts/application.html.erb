@@ -3,12 +3,32 @@
   <head>
     <title>Sample</title>
     <%= csrf_meta_tags %>
+    
+    <meta name="viewport" content="width=device-width">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    
+    <header>
+      <ul>
+        <li id="new-blog-link">
+        <%= link_to 'LIST', blogs_path %>
+        </li>
+        <li id="new-blog-link">
+        <%= link_to 'NEW', new_blog_path %>
+        </li>
+      </ul>
+    </header>
+  
     <%= yield %>
+    
+    <footer>
+      <p>エヌ・ティ・ティ・コム チェオ株式会社</p>
+      <p>Copyright © 2018 NTT Com CHEO All Rights Reserved.</p>
+    </footer>
+    
   </body>
 </html>
