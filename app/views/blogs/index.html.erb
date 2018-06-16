@@ -2,30 +2,27 @@
 
   <h1>つぶやき一覧</h1>
   
-  <p><%= notice %></p>
-
-  <table class="row">
-    <tr>
-      <th>content</th>
-    </tr>
-
-    <% @blogs.each do |blog| %>
-    
-      <tr class="blog-panel">
-        <td><%= blog.content %></td>
-    
-        <td><%= link_to '詳細を確認する', blog_path(blog.id), class: 'btn btn-default'  %></td>
-        <td><%= link_to 'つぶやきを編集する', edit_blog_path(blog.id), class: 'btn btn-primary' %></td>
-        <td><%= link_to 'つぶやきを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></td>
-    
-      </tr>
-    <% end %>
-  </table>
+  <div id="new-blog-link">
+    <%= link_to '新規つぶやきを作成する', new_blog_path, class: 'btn btn-info btn-lg' %>
+  </div>
   
   <br>
   
-  <div id="new-blog-link">
-    <%= link_to '新規つぶやきを作成する', new_blog_path, class: 'btn btn-primary btn-lg' %>
-  </div>    
+  <p><%= notice %></p>
+
+  <nav class="row">
+
+    <% @blogs.each do |blog| %>
+    
+      <ul class="blog-panel">
+        <li class="col-md-3"><%= blog.content %></li>
+    
+        <li class="col-md-3"><%= link_to '詳細を確認する', blog_path(blog.id), class: 'btn btn-default'  %></li>
+        <li class="col-md-3"><%= link_to 'つぶやきを編集する', edit_blog_path(blog.id), class: 'btn btn-primary' %></li>
+        <li class="col-md-3"><%= link_to 'つぶやきを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></li>
+    
+      </ul>
+    <% end %>
+  </nav>
 
 </div>

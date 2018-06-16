@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :list]
   
   def index
     @blogs = Blog.all
@@ -36,6 +36,9 @@ class BlogsController < ApplicationController
   def edit
   end
   
+  def top
+  end
+  
   def update
     if @blog.update(blog_params)
        redirect_to blogs_path, notice: "つぶやきを編集しました！"
@@ -51,7 +54,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :content)
+    params.require(:blog).permit(:content)
   end
   
   # idをキーとして値を取得するメソッド
