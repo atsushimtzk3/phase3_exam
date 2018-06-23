@@ -14,17 +14,39 @@
     
     <header>
       <ul>
-        <li id="new-blog-link">
-        <%= link_to 'HOME', top_blogs_path %>
-        </li>        
-        <li id="new-blog-link">
-        <%= link_to 'LIST', blogs_path %>
-        </li>
-        <li id="new-blog-link">
-        <%= link_to 'NEW', new_blog_path %>
-        </li>
+        <% if logged_in? %>
+          <li id="new-blog-link">
+          <%= link_to "Profile", user_path(current_user.id) %>
+          </li> 
+          <li id="new-blog-link">
+          <%= link_to 'HOME', top_blogs_path %>
+          </li>        
+          <li id="new-blog-link">
+          <%= link_to 'LIST', blogs_path %>
+          </li>
+          <li id="new-blog-link">
+          <%= link_to 'NEW', new_blog_path %>
+          </li>
+          <li id="new-blog-link">
+          <%= link_to "Logout", session_path(current_user.id), method: :delete %> 
+          </li> 
+        <% else %>
+          <li id="new-blog-link">
+          <%= link_to "Sign up", new_user_path %>
+          </li>
+          <li id="new-blog-link">
+          <%= link_to "Login", new_session_path %>
+          </li>
+        <% end %>          
       </ul>
     </header>
+
+
+
+    
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>    
   
     <%= yield %>
     

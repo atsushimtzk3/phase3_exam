@@ -17,7 +17,7 @@
       <ul class="blog-panel">
         <li class="col-md-3"><%= blog.content %></li>
     
-        <li class="col-md-3"><%= link_to '詳細を確認する', blog_path(blog.id), class: 'btn btn-default'  %></li>
+        <li class="col-md-3"><%= link_to '　詳細を確認する　', blog_path(blog.id), class: 'btn btn-default'  %></li>
         <li class="col-md-3"><%= link_to 'つぶやきを編集する', edit_blog_path(blog.id), class: 'btn btn-primary' %></li>
         <li class="col-md-3"><%= link_to 'つぶやきを削除する', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-danger' %></li>
     
