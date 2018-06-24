@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   
-  before_action :logged_in?
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :list]
+  before_action :require_login
   
   def index
     @blogs = Blog.all
@@ -54,6 +54,14 @@ class BlogsController < ApplicationController
   end
 
   private
+  
+  def require_login
+    unless logged_in?
+      flash[:notice] = 'Log in してください'
+      redirect_to new_session_path
+    end
+  end  
+  
   def blog_params
     params.require(:blog).permit(:content)
   end
