@@ -4,6 +4,7 @@ class BlogsController < ApplicationController
   before_action :require_login
   
   def index
+    #@blogs = current_user.blogs.all
     @blogs = Blog.all
   end
   
@@ -17,6 +18,7 @@ class BlogsController < ApplicationController
   
   def create
     @blog = Blog.new(blog_params)
+    @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する
     if @blog.save
        # 一覧画面へ遷移して"つぶやきを作成しました！"とメッセージを表示します。
        redirect_to blogs_path, notice: "つぶやきを作成しました！"
@@ -32,6 +34,7 @@ class BlogsController < ApplicationController
   end
   
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
   
   def edit
@@ -63,11 +66,12 @@ class BlogsController < ApplicationController
   end  
   
   def blog_params
-    params.require(:blog).permit(:content)
+    params.require(:blog).permit(:content, :user_id)
   end
   
   # idをキーとして値を取得するメソッド
     def set_blog
+      #@blog = current_user.blogs.find(params[:id])
       @blog = Blog.find(params[:id])
     end
   

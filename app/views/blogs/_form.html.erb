@@ -14,8 +14,9 @@
   <div class="blog_title">
     <%= form.label :content %>
     <%= form.text_field :content %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
   <%= form.submit %>
 <% end %>
 
-<%= link_to 'ブログ一覧画面にもどる', blogs_path %>
+<%= link_to 'つぶやき一覧画面にもどる', blogs_path,  class: 'btn btn-primary' %>

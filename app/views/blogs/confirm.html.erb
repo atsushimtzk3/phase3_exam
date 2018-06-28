@@ -4,6 +4,7 @@
   <%= form.hidden_field :content %>
 
   <p>本文:<%= @blog.content %></p>
+  <%= form.hidden_field :user_id, value: current_user.id %>
   <%= form.submit  "登録する" %>
 <% end %>
 
