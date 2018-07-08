@@ -21,10 +21,10 @@ class BlogsController < ApplicationController
     @blog.user_id = current_user.id #現在ログインしているuserのidをblogのuser_idカラムに挿入する
     if @blog.save
       
+       @user = current_user
        # deliverメソッドを使って、メールを送信する
-       ContactMailer.contact_mail(@contact).deliver      
+       ContactMailer.contact_mail(@user).deliver
        
-      
        # 一覧画面へ遷移して"つぶやきを作成しました！"とメッセージを表示します。
        redirect_to blogs_path, notice: "つぶやきを作成しました！"
        
