@@ -17,7 +17,7 @@
       <div class="container-fluid">
         <ul class="row">
           <li class="col-lg-2.4"><%= blog.content %></li>
-          <li class="col-lg-2.4"><%= blog.image %></li>
+          <li class="col-lg-2.4"><%= image_tag blog.image.to_s %></li>
         
           <% if blog.user == current_user %>
             <li class="col-lg-2.4"><%= link_to '　詳細を確認する　', blog_path(blog.id), class: 'btn btn-default'  %></li>
