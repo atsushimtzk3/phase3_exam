@@ -1,6 +1,7 @@
-<h1>つぶやき詳細画面</h1>
+<h1>Picture詳細画面</h1>
 
-<p>内容: <%= @blog.content %></p>
+<p>投稿者: <%= @blog.user.name%></p>
+<p>コメント: <%= @blog.content %></p>
 
 <p>
   <strong>Image:</strong>
@@ -15,4 +16,4 @@
   <% end %>
 <% end %>
 
-<%= link_to "つぶやき一覧画面にもどる", blogs_path, class: 'btn btn-primary' %>
+<%= link_to "Picture一覧画面にもどる", blogs_path, class: 'btn btn-primary' %>

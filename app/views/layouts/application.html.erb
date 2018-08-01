@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap</title>
+    <title>InstantPictures</title>
     <%= csrf_meta_tags %>
     
     <meta name="viewport" content="width=device-width">
@@ -18,9 +18,6 @@
           <li id="new-blog-link">
           <%= link_to "Profile", user_path(current_user.id) %>
           </li> 
-          <li id="new-blog-link">
-          <%= link_to 'HOME', top_blogs_path %>
-          </li>        
           <li id="new-blog-link">
           <%= link_to 'LIST', blogs_path %>
           </li>

@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="blog_title">
-    <%= form.label :content %>
+    <%= form.label :comment %>
     <%= form.text_field :content %>
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
@@ -38,4 +38,4 @@
   <%= form.submit %>
 <% end %>
 
-<%= link_to 'つぶやき一覧画面にもどる', blogs_path,  class: 'btn btn-primary' %>
+<%= link_to 'Picture一覧画面にもどる', blogs_path,  class: 'btn btn-primary' %>

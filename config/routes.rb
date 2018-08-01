@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'blogs#index'
 
   resources :feeds
-  root to: 'blogs#top'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users

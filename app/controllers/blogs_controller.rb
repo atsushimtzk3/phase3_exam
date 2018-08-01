@@ -25,8 +25,8 @@ class BlogsController < ApplicationController
        # deliverメソッドを使って、メールを送信する
        ContactMailer.contact_mail(@user).deliver
        
-       # 一覧画面へ遷移して"つぶやきを作成しました！"とメッセージを表示します。
-       redirect_to blogs_path, notice: "つぶやきを作成しました！"
+       # 一覧画面へ遷移して"Pictureを登録しました！"とメッセージを表示します。
+       redirect_to blogs_path, notice: "Pictureを登録しました！"
        
     else
        # 入力フォームを再描画します。
@@ -47,11 +47,14 @@ class BlogsController < ApplicationController
   end
   
   def top
+    #ここに記述する
+    @user = current_user
+    @favorite_blogs = @user.favorite_blogs    
   end
   
   def update
     if @blog.update(blog_params)
-       redirect_to blogs_path, notice: "つぶやきを編集しました！"
+       redirect_to blogs_path, notice: "Pictureを編集しました！"
     else
       render 'edit'
     end
@@ -59,7 +62,7 @@ class BlogsController < ApplicationController
   
   def destroy
     @blog.destroy
-    redirect_to blogs_path, notice:"つぶやきを削除しました！"
+    redirect_to blogs_path, notice:"Pictureを削除しました！"
   end
 
   private
